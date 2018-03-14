@@ -2,6 +2,7 @@ package elitesporttemselectoroop;
 
 import java.util.Scanner;
 import java.io.*;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -10,6 +11,8 @@ public class Main {
 		System.out.println("Welcome to the application for MMA player registration");
 		System.out.println("Please, follow the instructions and fill in the application...");
 		System.out.println();
+		
+		ArrayList<Candidate> candidateList = new ArrayList<>();
 		
 		try(Scanner sc = new Scanner(System.in)){
 			
