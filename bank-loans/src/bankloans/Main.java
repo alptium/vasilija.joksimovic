@@ -63,27 +63,27 @@ public class Main {
 					}
 				}
 				 if(client.getCreditType().equals("3")) {
+					 
 						if (client.getAge() > 60 || client.getHasPermanentJob().equalsIgnoreCase("no") || client.getAverageSallary() < 200 || client.getHasAnotherLoan().equals("yes")) {
 						System.out.println("Sorry, the bank in't able to approve you a loan under this conditions");
 						clientListNotApproved.add(client);
 
-					} else {
+						} else {
 						System.out.println("The bank has approved your loan, congratulation!");
 						clientListApproved.add(client);
 						}
-					}
+				}
 				 
-				
 					System.out.println("Do you want to enter the data for another client? yes/no");
 					String qu = sc.next();
 					if (qu.equalsIgnoreCase("no")) {
 					break;
-				}
-				else while (!qu.equalsIgnoreCase("yes") && !qu.equalsIgnoreCase("no"))  {
+					}else while (!qu.equalsIgnoreCase("yes") && !qu.equalsIgnoreCase("no"))  {
 					System.out.println("Sorry, but you are entered the wrong answer");
 					System.out.println("Are there new candidates, yes or no?");
 					qu = sc.next();
-				}
+					}
+					
 					if (qu.equalsIgnoreCase("no")) {
 						break;
 					}
@@ -163,7 +163,6 @@ public class Main {
 					c++;
 				}
 			}
-			
 			
 			System.out.println("Total number of applied clients that have permanent job: " + (c - 1) +  ", that makes" + "\t" + ((c - 1) * 100 / totalNumOfPeople) + "\t" + "%" );
 			System.out.println("Total number of applied clients that don't have permanent job: " + (totalNumOfPeople - c + 1) +  ", that makes" + "\t" + ((totalNumOfPeople - c + 1) * 100 / totalNumOfPeople) + "\t" + "%" );
