@@ -1,4 +1,4 @@
-package elitesporttemselectoroop;
+package elitesportteamselector;
 
 public class Candidate {
 	private String name;
@@ -49,6 +49,4 @@ public class Candidate {
 	}
 	
 }
-
-
 
