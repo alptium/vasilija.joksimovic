@@ -1,13 +1,14 @@
 package elitesportteamselector;
 
 public class Candidate {
+	
 	private String name;
-	 private String surname;
-	 int age;
-	 int height;
-	 int weight;
-	 boolean healthProblems;
-	 boolean earlierInjuries;
+	private String surname;
+	int age;
+	int height;
+	int weight;
+	boolean healthProblems;
+	boolean earlierInjuries;
 	
 	public Candidate(String name, String surname, int age, int height, int weight, boolean healthProblems, boolean earlierInjuries ) {
 		this.name = name;
@@ -17,7 +18,6 @@ public class Candidate {
 		this.weight = weight;
 		this.healthProblems = healthProblems;
 		this.earlierInjuries = earlierInjuries;
-		
 	}
 	
 	public String getName() {
@@ -47,6 +47,5 @@ public class Candidate {
 	public boolean getEarlierInjuries() {
 		return earlierInjuries;
 	}
-	
 }
 
