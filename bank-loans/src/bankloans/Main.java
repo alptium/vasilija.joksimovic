@@ -2,20 +2,17 @@ package bankloans;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import bankloans.Candidate;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
-	
 		System.out.println("Welcome to BANK LOANS application");
 		System.out.println("Please, fill in the form");
 		
 		ArrayList<Candidate> clientListApproved = new ArrayList<>();
 		ArrayList<Candidate> clientListNotApproved = new ArrayList<>();
 
-		
 		try (Scanner sc = new Scanner(System.in)) {
 
 			while (true) {
@@ -43,45 +40,50 @@ public class Main {
 				Candidate client = new Candidate(name, surname, age, hasPermanentJob, averageSallary, isMarried, hasAnotherLoan, creditType);
 				
 				if(client.getCreditType().equals("1")) {
+					
 					if (client.getAge() > 60 || client.getHasPermanentJob().equalsIgnoreCase("no") || client.getAverageSallary() < 350 || client.getHasAnotherLoan().equals("yes")) {
-					System.out.println("Sorry, the bank in't able to approve you a loan under this conditions");
-					clientListNotApproved.add(client);
-
-				} else {
-					System.out.println("The bank has approved your loan, congratulation!");
-					clientListApproved.add(client);
-					}
-				} 
-				 if(client.getCreditType().equals("2")) {
-					if (client.getAge() > 60 || client.getHasPermanentJob().equalsIgnoreCase("no") || client.getAverageSallary() < 400 || client.getHasAnotherLoan().equals("yes") || client.getIsMarried().equals("no")) {
-					System.out.println("Sorry, the bank in't able to approve you a loan under this conditions");
-					clientListNotApproved.add(client);
-
-				} else {
-					System.out.println("The bank has approved your loan, congratulation!");
-					clientListApproved.add(client);
-					}
-				}
-				 if(client.getCreditType().equals("3")) {
-					 
-						if (client.getAge() > 60 || client.getHasPermanentJob().equalsIgnoreCase("no") || client.getAverageSallary() < 200 || client.getHasAnotherLoan().equals("yes")) {
 						System.out.println("Sorry, the bank in't able to approve you a loan under this conditions");
 						clientListNotApproved.add(client);
-
-						} else {
+					} else {
 						System.out.println("The bank has approved your loan, congratulation!");
 						clientListApproved.add(client);
-						}
+					}
+					
+				} 
+				
+				 if(client.getCreditType().equals("2")) {
+					 
+					if (client.getAge() > 60 || client.getHasPermanentJob().equalsIgnoreCase("no") || client.getAverageSallary() < 400 || client.getHasAnotherLoan().equals("yes") || client.getIsMarried().equals("no")) {
+						System.out.println("Sorry, the bank in't able to approve you a loan under this conditions");
+						clientListNotApproved.add(client);
+					} else {
+						System.out.println("The bank has approved your loan, congratulation!");
+						clientListApproved.add(client);
+					}
+					
 				}
+				 
+				 if(client.getCreditType().equals("3")) {
+					 
+					if (client.getAge() > 60 || client.getHasPermanentJob().equalsIgnoreCase("no") || client.getAverageSallary() < 200 || client.getHasAnotherLoan().equals("yes")) {
+						System.out.println("Sorry, the bank in't able to approve you a loan under this conditions");
+						clientListNotApproved.add(client);
+					} else {
+						System.out.println("The bank has approved your loan, congratulation!");
+						clientListApproved.add(client);
+					}
+					
+				 }
 				 
 					System.out.println("Do you want to enter the data for another client? yes/no");
 					String qu = sc.next();
+					
 					if (qu.equalsIgnoreCase("no")) {
-					break;
-					}else while (!qu.equalsIgnoreCase("yes") && !qu.equalsIgnoreCase("no"))  {
-					System.out.println("Sorry, but you are entered the wrong answer");
-					System.out.println("Are there new candidates, yes or no?");
-					qu = sc.next();
+						break;
+					}else while (!qu.equalsIgnoreCase("yes") && !qu.equalsIgnoreCase("no")) {
+						System.out.println("Sorry, but you are entered the wrong answer");
+						System.out.println("Are there new candidates, yes or no?");
+						qu = sc.next();
 					}
 					
 					if (qu.equalsIgnoreCase("no")) {
@@ -136,6 +138,7 @@ public class Main {
 				}else {
 					b++;
 				}
+				
 			}
 			
 			for(Candidate client : clientListNotApproved) {
@@ -145,6 +148,7 @@ public class Main {
 				}else {
 					b++;
 				}
+				
 			}
 			
 			System.out.println("Total number of applied clients that are married is: " + (a - 1) + "\t" + "and unmarried " + (b-1));
@@ -155,6 +159,7 @@ public class Main {
 				if(client.getHasPermanentJob().equals("yes")) {
 					c++;
 				}
+				
 			}
 			
 			for(Candidate client : clientListNotApproved) {
@@ -162,10 +167,11 @@ public class Main {
 				if(client.getHasPermanentJob().equals("yes")) {
 					c++;
 				}
+				
 			}
 			
-			System.out.println("Total number of applied clients that have permanent job: " + (c - 1) +  ", that makes" + "\t" + ((c - 1) * 100 / totalNumOfPeople) + "\t" + "%" );
-			System.out.println("Total number of applied clients that don't have permanent job: " + (totalNumOfPeople - c + 1) +  ", that makes" + "\t" + ((totalNumOfPeople - c + 1) * 100 / totalNumOfPeople) + "\t" + "%" );
+			System.out.println("Total number of applied clients that have permanent job: " + (c - 1) +  ", that makes" + "\t" + ((c - 1) * 100 / totalNumOfPeople) + "%" );
+			System.out.println("Total number of applied clients that don't have permanent job: " + (totalNumOfPeople - c + 1) +  ", that makes" + "\t" + ((totalNumOfPeople - c + 1) * 100 / totalNumOfPeople) + "%" );
 		}
 		
 	}
