@@ -25,28 +25,24 @@ public class Main {
 				String surname = sc.next();
 				
 				boolean checking = false;
-				double grade = 0;
-				
+				double grade = 1;
 				while (!checking) {
 					
 					try {
-						
-						while (grade <= 0) {
 							
-							System.out.println("Enter student's grade ");
+						System.out.println("Enter student's grade ");
+						 grade = sc.nextDouble();
+							
+						while (grade < 0 || grade > 5) {
+							System.out.println("The student's grade has to be in range 1 to 5. Please, enter new grade!");
 							grade= sc.nextDouble();
-							
-							if (grade < 0 || grade > 5) {
-								System.out.println("The student's grade has to be a positive number.");
-							}
-							
 						}
-						
+							
 						checking = true;
 					} 
 					
 					catch (Exception e) {
-						System.out.println("Grade cant be a letter. Please, enter the correct grade!");
+						System.out.println("Grade can't be a letter. Please, enter the correct grade!");
 						sc.next(); 	
 					}
 					
@@ -77,6 +73,8 @@ public class Main {
 			
 			}
 			
+			logger.info("You have entered all the data correctly. Now, you can see your students data.");
+
 			double totalGrade = 0;
 			int i = 1;
 			
