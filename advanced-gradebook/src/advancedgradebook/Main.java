@@ -2,25 +2,59 @@ package advancedgradebook;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.logging.*;
 
 public class Main {
+	
+	private static final Logger logger = Logger.getLogger("Main");
 
 	public static void main(String[] args)  {
-	    
+		
+		logger.info("Logger name: " + logger.getName() + "\n" + "WELCOME TO e-GRADEBOOK");
+ 
 		ArrayList<Student> studentsList = new ArrayList<>();
 		
 		try (Scanner sc = new Scanner(System.in)) {
 
 			while (true) {
-	
+				
+				System.out.println();
 				System.out.println("Enter student's first name");
 				String name = sc.next();
 				System.out.println("Enter student's last name");
 				String surname = sc.next();
-				System.out.println("Enter student's grade?");
-				double grade = sc.nextDouble();
 				
+				boolean checking = false;
+				double grade = 0;
+				
+				while (!checking) {
+					
+					try {
+						
+						while (grade <= 0) {
+							
+							System.out.println("Enter student's grade ");
+							grade= sc.nextDouble();
+							
+							if (grade < 0 || grade > 5) {
+								System.out.println("The student's grade has to be a positive number.");
+							}
+							
+						}
+						
+						checking = true;
+					} 
+					
+					catch (Exception e) {
+						System.out.println("Grade cant be a letter. Please, enter the correct grade!");
+						sc.next(); 	
+					}
+					
+				} 
+			
+					
 				Student student = new Student(name, surname, grade);
+			
 				studentsList.add(student);
 				
 				System.out.println("Do you want to enter the data for a new student? yes/no");
@@ -30,14 +64,14 @@ public class Main {
 				
 				if (quit.equals("no")) {
 					break;
-				} else while (!quit.equals("no") && !quit.equals("yes")) {
+				} else while (!quit.equalsIgnoreCase("no") && !quit.equalsIgnoreCase("yes")) {
 					System.out.println("You entered the wrong word, plase response with yes or no!");
 					System.out.println("Do you want to enter the data for a new student? yes/no");
 					System.out.println();
 					quit = sc.next();
 				}
 				
-				 if (quit.equals("no")) {
+				 if (quit.equalsIgnoreCase("no")) {
 						break;		
 				}
 			
@@ -62,7 +96,7 @@ public class Main {
 			
 			System.out.println();
 			System.out.println("Total grade in the class is: " + totalGrade);
-			System.out.println("Average grade in the class is: " + (totalGrade / i));
+			System.out.println("Average grade in the class is: " + (totalGrade / (i - 1)));
 
 			double maxGrade = 0;
 			double minGrade = 5;
@@ -90,4 +124,8 @@ public class Main {
 		
 	}
 	
+	public static Logger getLogger() {
+		return logger;
+	}
+
 }
