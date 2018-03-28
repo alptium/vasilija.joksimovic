@@ -49,7 +49,7 @@ public class Main {
 				if(client.getCreditType().equals("1")) {
 					
 					if (client.getAge() > 60 || client.getHasPermanentJob().equalsIgnoreCase("no") || client.getAverageSallary() < 350 || client.getHasAnotherLoan().equals("yes")) {
-						System.out.println("Sorry, the bank in't able to approve you a loan under this conditions");
+						System.out.println("Sorry, the bank ins't able to approve you a loan under this conditions");
 						clientListNotApproved.add(client);
 					} else {
 						System.out.println("The bank has approved your loan, congratulation!");
@@ -61,7 +61,7 @@ public class Main {
 				if(client.getCreditType().equals("2")) {
 					 
 					if (client.getAge() > 60 || client.getHasPermanentJob().equalsIgnoreCase("no") || client.getAverageSallary() < 400 || client.getHasAnotherLoan().equals("yes") || client.getIsMarried().equals("no")) {
-						System.out.println("Sorry, the bank in't able to approve you a loan under this conditions");
+						System.out.println("Sorry, the bank isn't able to approve you a loan under this conditions");
 						clientListNotApproved.add(client);
 					} else {
 						System.out.println("The bank has approved your loan, congratulation!");
@@ -73,7 +73,7 @@ public class Main {
 				if(client.getCreditType().equals("3")) {
 					 
 					if (client.getAge() > 60 || client.getHasPermanentJob().equalsIgnoreCase("no") || client.getAverageSallary() < 200 || client.getHasAnotherLoan().equals("yes")) {
-						System.out.println("Sorry, the bank in't able to approve you a loan under this conditions");
+						System.out.println("Sorry, the bank isn't able to approve you a loan under this conditions");
 						clientListNotApproved.add(client);
 					} else {
 						System.out.println("The bank has approved your loan, congratulation!");
@@ -88,8 +88,8 @@ public class Main {
 				if (qu.equalsIgnoreCase("no")) {
 					break;
 				} else while (!qu.equalsIgnoreCase("yes") && !qu.equalsIgnoreCase("no")) {
-					System.out.println("Sorry, but you are entered the wrong answer");
-					System.out.println("Are there new candidates, yes or no?");
+					System.out.println("Sorry, but you entered the wrong answer");
+					System.out.println("Do you want to enter the data for another client? yes/no");
 					qu = sc.next();
 				}
 					
